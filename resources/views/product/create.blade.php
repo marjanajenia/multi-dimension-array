@@ -14,7 +14,8 @@
                 </div>
             </div>
         </div>
-        <form action="">
+        <form action="{{ route('store') }}" method="POST">
+            @csrf
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -27,10 +28,10 @@
                 </thead>
                 <tbody id="tab">
                     <tr>
-                        <td><input type="text" name="inputs[0][category]" placeholder="enter category"></td>
-                        <td><input type="text" name="inputs[0][product]" placeholder="enter product"></td>
-                        <td><input type="text" name="inputs[0][unit]" placeholder="enter unit"></td>
-                        <td><input type="text" name="inputs[0][price]" placeholder="enter price"></td>
+                        <td><input type="text" name="inputs[0][category_id]" placeholder="enter category" required></td>
+                        <td><input type="text" name="inputs[0][product_name]" placeholder="enter product" required></td>
+                        <td><input type="text" name="inputs[0][unit]" placeholder="enter unit" required></td>
+                        <td><input type="text" name="inputs[0][price]" placeholder="enter price" required></td>
                         <td><button type="button" class="btn btn-info" name="add" id="add">Add</button></td>
                     </tr>
                 </tbody>
@@ -51,16 +52,16 @@
                     $('#tab').append(
                         `<tr>
                         <td>
-                            <input type="text" name="inputs[` + i + `][category]" placeholder="enter category">
+                            <input type="text" name="inputs[` + i + `][category_id]" placeholder="enter category" required>
                         </td>
                         <td>
-                            <input type="text" name="inputs[` + i + `][product]" placeholder="enter category">
+                            <input type="text" name="inputs[` + i + `][product_name]" placeholder="enter category" required>
                         </td>
                         <td>
-                            <input type="text" name="inputs[` + i + `][unit]" placeholder="enter category">
+                            <input type="text" name="inputs[` + i + `][unit]" placeholder="enter category" required>
                         </td>
                         <td>
-                            <input type="text" name="inputs[` + i + `][price]" placeholder="enter category">
+                            <input type="text" name="inputs[` + i + `][price]" placeholder="enter category" required>
                         </td>
                         <td>
                             <button type="button" class="btn btn-danger remove-table-row">remove</button>

@@ -36,7 +36,18 @@ class MultiRowController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'index.*.category_id' => 'required',
+            'index.*.product_name' => 'required',
+            'index.*.unit' => 'required',
+            'index.*.price' => 'required',
+        ]);
+
+        foreach ($request->inputs as $key => $value){
+            product::create($value);
+        }
+
+        return back()->with('success', 'the post is added');
     }
 
     /**

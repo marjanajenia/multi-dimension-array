@@ -22,3 +22,4 @@ Route::get('/', function () {
 // });
 
 Route::get('/create', [MultiRowController::class, 'create'])->name('create');
+Route::post('/store', [MultiRowController::class, 'store'])->name('store');
